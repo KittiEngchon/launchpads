@@ -1,48 +1,118 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Launchpad</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Launchpads</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: #f4f7fb;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      font-weight: 600;
+    }
+    .nav-link.active {
+      color: #ec4899 !important;
+      border-bottom: 2px solid #ec4899;
+    }
+    .card {
+      border: 1px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+      transition: 0.3s ease;
+      background: #fff;
+    }
+    .card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    .badge-custom {
+      background: #facc15;
+      color: #000;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 8px;
+    }
+    .badge-status {
+      background: #4ade80;
+      color: #fff;
+    }
+    .progress-bar {
+      background-color: #ec4899;
+    }
+    .btn-view {
+      background: #ec4899;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+    .btn-view:hover {
+      background: #db2777;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <h1>🚀 Launchpad</h1>
-    <nav class="menu">
-      <a href="#">🪙 สร้างเหรียญ</a>
-      <a href="#">🧨 ลันแพท</a>
-      <a href="#">🎞 เทียร์เตอร์</a>
-      <a href="#">🎁 แอร์ดรอป</a>
-      <a href="#">💣 บอมเบอร์</a>
-    </nav>
-    <button class="connect-wallet">Connect Wallet</button>
-  </header>
 
-  <section class="launchpad-section">
-    <h2>โปรเจกต์ที่กำลังขาย</h2>
-    <div class="slider">
-      <button class="slide-btn prev">❮</button>
-      <div class="card-container">
-        <div class="card">
-          <span class="badge">Sale live · Affiliate</span>
-          <h3>Div Coin</h3>
-          <p>1 MATIC = 10,000 DIV</p>
-          <p><strong>Soft/Hard:</strong> 1,788 - 7,150 MATIC</p>
-          <p>Liquidity: 55% | Lockup: 30 days</p>
-          <p>Sale Ends In: <span id="timer">00:18:39</span></p>
-          <button>View</button>
-        </div>
-        <!-- เพิ่มการ์ดอื่นๆ ที่นี่ -->
-      </div>
-      <button class="slide-btn next">❯</button>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="#">🚀 Launchpads</a>
+    <div class="d-flex align-items-center">
+      <select class="form-select me-3">
+        <option selected>Polygon Mainnet</option>
+        <option>Arbitrum</option>
+      </select>
+      <button class="btn btn-primary">Connect Wallet</button>
     </div>
-  </section>
+  </div>
+  <div class="container-fluid px-4">
+    <ul class="nav nav-tabs mt-2">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Launchpads</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Create Fairlaunch</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-  <footer>
-    <p>© 2025 Launchpad. สงวนสิทธิ์ทุกประการ</p>
-  </footer>
+<div class="container py-4">
+  <div class="row">
+    <!-- Example Card Start -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="badge badge-custom">AFFILIATE</span>
+          <span class="badge badge-status">Sale live</span>
+        </div>
+        <h5>Div Coin</h5>
+        <p class="text-muted">1 MATIC = 10,000 DIV</p>
+        <p><strong>Soft/Hard:</strong> <span class="text-danger">1,788 - 7,150 MATIC</span></p>
+        <p><strong>Progress:</strong> (16.32%)</p>
+        <div class="progress mb-2">
+          <div class="progress-bar" style="width: 16.32%"></div>
+        </div>
+        <p class="text-muted">1,167 MATIC / 7,150 MATIC</p>
+        <p><strong>Liquidity:</strong> 55% | <strong>Lockup:</strong> 30 days</p>
+        <p class="text-muted">Sale Ends In: 00:18:39</p>
+        <button class="btn btn-view w-100">View</button>
+      </div>
+    </div>
+    <!-- Example Card End -->
+  </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
