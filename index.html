@@ -3,55 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Launchpad</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Launchpad Slider</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .slider-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .slider-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .slider-button:hover {
+      background-color: #0056b3;
+    }
+    .token-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding: 16px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      max-width: 90vw;
+    }
+    .token-card {
+      min-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 16px;
+      background: #ffffff;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .token-card button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .token-card button:hover {
+      background-color: #1e7e34;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>🚀 Launchpad</h1>
-      <nav>
-        <ul>
-          <li><a href="#">🏗️ สร้างเหรียญ</a></li>
-          <li><a href="#">🚀 ลันแพท</a></li>
-          <li><a href="#">📊 เทียร์เตอร์</a></li>
-          <li><a href="#">🎁 แอร์ดรอป</a></li>
-          <li><a href="#">💣 บอมเบอร์</a></li>
-        </ul>
-        <button id="connectWallet">Connect Wallet</button>
-      </nav>
-    </div>
-  </header>
+  <h1>🚀 Launchpad เหรียญใหม่</h1>
 
-  <main class="container">
-    <section class="launchpad-list">
-      <h2>โปรเจกต์ที่กำลังขาย</h2>
-      <div class="card-grid">
-        <!-- ตัวอย่างการ์ดโปรเจกต์ -->
-        <div class="launch-card">
-          <div class="card-header">
-            <span class="badge live">Sale live</span>
-            <span class="badge affiliate">Affiliate</span>
-          </div>
-          <h3>Div Coin</h3>
-          <p>1 MATIC = 10,000 DIV</p>
-          <p><strong>Soft/Hard</strong>: 1,788 - 7,150 MATIC</p>
-          <div class="progress-bar">
-            <div class="progress" style="width: 16.32%"></div>
-          </div>
-          <p>Liquidity: 55% | Lockup: 30 days</p>
-          <p>Sale Ends In: <span class="timer">00:18:39</span></p>
-          <button>View</button>
-        </div>
-        <!-- เพิ่มการ์ดอื่น ๆ ตามต้องการ -->
+  <div class="slider-container">
+    <button class="slider-button" onclick="scrollSlider('left')">←</button>
+
+    <div class="token-slider">
+      <div class="token-card">
+        <h3>Div Coin</h3>
+        <p>1 MATIC = 10,000 DIV</p>
+        <p><strong>Soft/Hard:</strong> 1,788 - 7,150 MATIC</p>
+        <p>Liquidity: 55% | Lockup: 30 days</p>
+        <p>⏰ Sale Ends: 00:18:39</p>
+        <button>View</button>
       </div>
-    </section>
-  </main>
+      <div class="token-card">
+        <h3>Levessa</h3>
+        <p>1 USDT = 5 LVSS</p>
+        <p><strong>Soft/Hard:</strong> 5,000 - 10,000 USDT</p>
+        <p>Liquidity: Unlocked</p>
+        <p>⏰ Sale Ends: 15:13:57</p>
+        <button>View</button>
+      </div>
+      <div class="token-card">
+        <h3>Zeta X</h3>
+        <p>1 ETH = 1,500 ZTX</p>
+        <p><strong>Soft/Hard:</strong> 2 ETH - 20 ETH</p>
+        <p>Liquidity: 100% | Lockup: 90 days</p>
+        <p>⏰ Sale Ends: 02:01:44</p>
+        <button>View</button>
+      </div>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 Launchpad. สงวนลิขสิทธิ์</p>
-  </footer>
+    <button class="slider-button" onclick="scrollSlider('right')">→</button>
+  </div>
 
-  <script src="js/script.js"></script>
+  <script>
+    function scrollSlider(direction) {
+      const slider = document.querySelector('.token-slider');
+      slider.scrollBy({
+        left: direction === 'left' ? -320 : 320,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 </body>
 </html>
