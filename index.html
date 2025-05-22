@@ -1,116 +1,48 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Launchpad Slider</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-    }
-    h1 {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .slider-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .slider-button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .slider-button:hover {
-      background-color: #0056b3;
-    }
-    .token-slider {
-      display: flex;
-      overflow-x: auto;
-      gap: 16px;
-      padding: 16px;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      max-width: 90vw;
-    }
-    .token-card {
-      min-width: 300px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      padding: 16px;
-      background: #ffffff;
-      scroll-snap-align: start;
-      flex-shrink: 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .token-card button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      border: none;
-      background-color: #28a745;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .token-card button:hover {
-      background-color: #1e7e34;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Launchpad</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🚀 Launchpad เหรียญใหม่</h1>
+  <header class="header">
+    <h1>🚀 Launchpad</h1>
+    <nav class="menu">
+      <a href="#">🪙 สร้างเหรียญ</a>
+      <a href="#">🧨 ลันแพท</a>
+      <a href="#">🎞 เทียร์เตอร์</a>
+      <a href="#">🎁 แอร์ดรอป</a>
+      <a href="#">💣 บอมเบอร์</a>
+    </nav>
+    <button class="connect-wallet">Connect Wallet</button>
+  </header>
 
-  <div class="slider-container">
-    <button class="slider-button" onclick="scrollSlider('left')">←</button>
-
-    <div class="token-slider">
-      <div class="token-card">
-        <h3>Div Coin</h3>
-        <p>1 MATIC = 10,000 DIV</p>
-        <p><strong>Soft/Hard:</strong> 1,788 - 7,150 MATIC</p>
-        <p>Liquidity: 55% | Lockup: 30 days</p>
-        <p>⏰ Sale Ends: 00:18:39</p>
-        <button>View</button>
+  <section class="launchpad-section">
+    <h2>โปรเจกต์ที่กำลังขาย</h2>
+    <div class="slider">
+      <button class="slide-btn prev">❮</button>
+      <div class="card-container">
+        <div class="card">
+          <span class="badge">Sale live · Affiliate</span>
+          <h3>Div Coin</h3>
+          <p>1 MATIC = 10,000 DIV</p>
+          <p><strong>Soft/Hard:</strong> 1,788 - 7,150 MATIC</p>
+          <p>Liquidity: 55% | Lockup: 30 days</p>
+          <p>Sale Ends In: <span id="timer">00:18:39</span></p>
+          <button>View</button>
+        </div>
+        <!-- เพิ่มการ์ดอื่นๆ ที่นี่ -->
       </div>
-      <div class="token-card">
-        <h3>Levessa</h3>
-        <p>1 USDT = 5 LVSS</p>
-        <p><strong>Soft/Hard:</strong> 5,000 - 10,000 USDT</p>
-        <p>Liquidity: Unlocked</p>
-        <p>⏰ Sale Ends: 15:13:57</p>
-        <button>View</button>
-      </div>
-      <div class="token-card">
-        <h3>Zeta X</h3>
-        <p>1 ETH = 1,500 ZTX</p>
-        <p><strong>Soft/Hard:</strong> 2 ETH - 20 ETH</p>
-        <p>Liquidity: 100% | Lockup: 90 days</p>
-        <p>⏰ Sale Ends: 02:01:44</p>
-        <button>View</button>
-      </div>
+      <button class="slide-btn next">❯</button>
     </div>
+  </section>
 
-    <button class="slider-button" onclick="scrollSlider('right')">→</button>
-  </div>
+  <footer>
+    <p>© 2025 Launchpad. สงวนสิทธิ์ทุกประการ</p>
+  </footer>
 
-  <script>
-    function scrollSlider(direction) {
-      const slider = document.querySelector('.token-slider');
-      slider.scrollBy({
-        left: direction === 'left' ? -320 : 320,
-        behavior: 'smooth'
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
